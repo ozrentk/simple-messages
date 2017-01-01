@@ -8,3 +8,5 @@ SimpleMessagesWeb/.vs/config/applicationhost.config
 /SimpleMessagesWeb/SimpleMessagesWeb.Tests/bin/Debug
 /SimpleMessagesWeb/SimpleMessagesWeb.Tests/obj/Debug
 /SimpleMessagesWeb/SimpleMessagesWeb.Tests/SimpleMessagesWeb.Tests.csproj.user
+/SimpleMessages/SimpleMessages/bin/Debug
+/SimpleMessages/SimpleMessages/obj/Debug
