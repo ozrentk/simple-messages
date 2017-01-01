@@ -4,3 +4,7 @@ SimpleMessagesWeb/SimpleMessagesWeb.DB/obj/Debug/DesignTimeResolveAssemblyRefere
 SimpleMessagesWeb/SimpleMessagesWeb/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 *.suo
 SimpleMessagesWeb/.vs/config/applicationhost.config
+/SimpleMessagesWeb/SimpleMessagesWeb.DB/bin/Debug
+/SimpleMessagesWeb/SimpleMessagesWeb.Tests/bin/Debug
+/SimpleMessagesWeb/SimpleMessagesWeb.Tests/obj/Debug
+/SimpleMessagesWeb/SimpleMessagesWeb.Tests/SimpleMessagesWeb.Tests.csproj.user
