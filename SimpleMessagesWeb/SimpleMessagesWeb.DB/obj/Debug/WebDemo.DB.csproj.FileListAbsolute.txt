@@ -1,5 +1,0 @@
-K:\Poso\WebDemo\WebDemo.DB\bin\Debug\WebDemo.DB.dll.config
-K:\Poso\WebDemo\WebDemo.DB\bin\Debug\WebDemo.DB.dll
-K:\Poso\WebDemo\WebDemo.DB\bin\Debug\WebDemo.DB.pdb
-K:\Poso\WebDemo\WebDemo.DB\obj\Debug\WebDemo.DB.dll
-K:\Poso\WebDemo\WebDemo.DB\obj\Debug\WebDemo.DB.pdb
