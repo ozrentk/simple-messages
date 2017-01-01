@@ -1,0 +1,6 @@
+*.suo
+SimpleMessagesWeb/SimpleMessagesWeb.DB/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.cache
+SimpleMessagesWeb/SimpleMessagesWeb/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+*.suo
+SimpleMessagesWeb/.vs/config/applicationhost.config
