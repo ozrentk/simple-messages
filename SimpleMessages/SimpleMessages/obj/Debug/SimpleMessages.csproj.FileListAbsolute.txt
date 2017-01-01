@@ -1,0 +1,16 @@
+D:\Temp\MessagesDb\SimpleMessages\bin\Debug\SimpleMessages.exe.config
+D:\Temp\MessagesDb\SimpleMessages\bin\Debug\SimpleMessages.exe
+D:\Temp\MessagesDb\SimpleMessages\bin\Debug\SimpleMessages.pdb
+D:\Temp\MessagesDb\SimpleMessages\bin\Debug\SimpleMessages.exe.CodeAnalysisLog.xml
+D:\Temp\MessagesDb\SimpleMessages\bin\Debug\SimpleMessages.exe.lastcodeanalysissucceeded
+D:\Temp\MessagesDb\SimpleMessages\obj\Debug\SimpleMessages.exe
+D:\Temp\MessagesDb\SimpleMessages\obj\Debug\SimpleMessages.pdb
+D:\Temp\MessagesDb\SimpleMessages\obj\Debug\SimpleMessages.csprojResolveAssemblyReference.cache
+D:\OneDrive\Posao\Infobip\SimpleMessages\SimpleMessages\bin\Debug\SimpleMessages.exe.config
+D:\OneDrive\Posao\Infobip\SimpleMessages\SimpleMessages\bin\Debug\SimpleMessages.exe
+D:\OneDrive\Posao\Infobip\SimpleMessages\SimpleMessages\bin\Debug\SimpleMessages.pdb
+D:\OneDrive\Posao\Infobip\SimpleMessages\SimpleMessages\bin\Debug\SimpleMessages.exe.CodeAnalysisLog.xml
+D:\OneDrive\Posao\Infobip\SimpleMessages\SimpleMessages\bin\Debug\SimpleMessages.exe.lastcodeanalysissucceeded
+D:\OneDrive\Posao\Infobip\SimpleMessages\SimpleMessages\obj\Debug\SimpleMessages.exe
+D:\OneDrive\Posao\Infobip\SimpleMessages\SimpleMessages\obj\Debug\SimpleMessages.pdb
+D:\OneDrive\Posao\Infobip\SimpleMessages\SimpleMessages\obj\Debug\SimpleMessages.csprojResolveAssemblyReference.cache

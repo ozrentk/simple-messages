@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section scripts {
+    <script>
+        @Html.RequireJs("/Scripts/main.js", "/Scripts/My/test.js");
+    </script>
+}
+
+<h2>Index</h2>
+
+<button type="button" id="myStateButton" data-complete-text="finished!" class="btn btn-primary" autocomplete="off">
+    ...
+</button>

@@ -1,0 +1,5 @@
+INFO 20:44:55.462 NaT1 [] WebDemo.MvcApplication - Log configured
+INFO 20:44:56.006 NaT1 [] WebDemo.MvcApplication - Areas registered
+INFO 20:44:56.007 NaT1 [] WebDemo.MvcApplication - Global filters registered
+INFO 20:44:56.095 NaT1 [] WebDemo.MvcApplication - Routes registered
+INFO 20:44:56.107 NaT1 [] WebDemo.MvcApplication - Bundles registered

@@ -1,0 +1,15 @@
+INFO 16:32:27.300 N0T1 [] WebDemo.MvcApplication - Log configured
+INFO 16:32:27.669 N0T1 [] WebDemo.MvcApplication - Areas registered
+INFO 16:32:27.669 N0T1 [] WebDemo.MvcApplication - Global filters registered
+INFO 16:32:27.738 N0T1 [] WebDemo.MvcApplication - Routes registered
+INFO 16:32:27.760 N0T1 [] WebDemo.MvcApplication - Bundles registered
+INFO 16:35:45.931 N0T1 [] WebDemo.MvcApplication - Log configured
+INFO 16:35:45.944 N0T1 [] WebDemo.MvcApplication - Areas registered
+INFO 16:35:45.945 N0T1 [] WebDemo.MvcApplication - Global filters registered
+INFO 16:35:45.986 N0T1 [] WebDemo.MvcApplication - Routes registered
+INFO 16:35:46.003 N0T1 [] WebDemo.MvcApplication - Bundles registered
+INFO 16:40:38.399 N0T1 [] WebDemo.MvcApplication - Log configured
+INFO 16:40:38.412 N0T1 [] WebDemo.MvcApplication - Areas registered
+INFO 16:40:38.412 N0T1 [] WebDemo.MvcApplication - Global filters registered
+INFO 16:40:38.453 N0T1 [] WebDemo.MvcApplication - Routes registered
+INFO 16:40:38.471 N0T1 [] WebDemo.MvcApplication - Bundles registered
