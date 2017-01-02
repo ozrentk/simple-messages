@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SimpleMessages.Extensions
 {
-    public class RequestInterceptor : IEndpointBehavior, IDispatchMessageInspector
+    public class CorsEnabler : IEndpointBehavior, IDispatchMessageInspector
     {
         public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
         {
@@ -30,39 +33,26 @@ namespace SimpleMessages.Extensions
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:ValidateArgumentsOfPublicMethods")]
         public object AfterReceiveRequest(ref Message request, IClientChannel channel, InstanceContext instanceContext)
         {
-            var propDict = request.Properties.ToDictionary(k => k.Key, k => k.Value);
-
-            var method = ((HttpRequestMessageProperty)propDict["httpRequest"]).Method;
-            var uri = ((UriTemplateMatch)propDict["UriTemplateMatchResults"]).RequestUri.ToString();
-            var opName = propDict["HttpOperationName"].ToString();
-
-            Console.WriteLine(String.Format("REQ: {0} {1} -> '{2}'", method, uri, opName));
-            if(!request.IsEmpty)
-                Console.WriteLine(request);
-            Console.WriteLine();
-
             return null;
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:ValidateArgumentsOfPublicMethods")]
         public void BeforeSendReply(ref Message reply, object correlationState)
         {
-            var propDict = reply.Properties.ToDictionary(k => k.Key, k => k.Value);
-
-            var httpRespProp = propDict["httpResponse"];
-            var respMsgProp = (HttpResponseMessageProperty)httpRespProp;
-
-            Console.WriteLine(String.Format("RSP: {0} {1} - '{2}'", (int)respMsgProp.StatusCode, respMsgProp.StatusCode, respMsgProp.StatusDescription));
-            if (!reply.IsEmpty)
+            var requiredHeaders = new Dictionary<string, string>
             {
-                // Copy response body
-                var buffer = reply.CreateBufferedCopy(Int32.MaxValue);
-                reply = buffer.CreateMessage();
-                var duplicateMsg = buffer.CreateMessage();
-                Console.WriteLine(duplicateMsg);
-                //Console.WriteLine("[response sent]");
+              { "Access-Control-Allow-Origin", "*" },
+              { "Access-Control-Request-Method", "GET,POST,PUT,DELETE,OPTIONS" },
+              //{ "Access-Control-Allow-Credentials", "true" },
+              //{ "Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Safe-Repository-Path,Safe-Repository-Token" }
+            };
+
+            var httpHeader = reply.Properties["httpResponse"] as HttpResponseMessageProperty;
+            foreach (var item in requiredHeaders)
+            {
+                httpHeader.Headers.Add(item.Key, item.Value);
             }
-            Console.WriteLine();
+
         }
     }
 }

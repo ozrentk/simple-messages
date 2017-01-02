@@ -9,7 +9,7 @@ using System.ServiceModel.Web;
 
 namespace SimpleMessages.Service
 {
-    public class MessageService : IPublicMessages, ISecureMessages
+    public class MessageService : IMessages //IPublicMessages, ISecureMessages
     {
         private readonly Database _database;
 
@@ -43,6 +43,16 @@ namespace SimpleMessages.Service
             }
 
             return true;
+        }
+
+        public bool HandleHttpOptionsRequest()
+        {
+            if (WebOperationContext.Current != null && WebOperationContext.Current.IncomingRequest.Method == "OPTIONS")
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public string Echo(string text)
@@ -276,14 +286,14 @@ namespace SimpleMessages.Service
             ctx.OutgoingResponse.StatusDescription = httpDescription;
         }
 
-        public User[] FindUsers(string token)
+        public string[] FindUserNames(string token)
         {
             HttpStatusCode httpCode = HttpStatusCode.OK;
             string httpDescription = "";
 
             WebOperationContext ctx = WebOperationContext.Current;
 
-            User[] users = null;
+            string[] users = null;
             try
             {
                 users = _database.FindUsers(token);

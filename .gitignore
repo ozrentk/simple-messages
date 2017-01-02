@@ -10,3 +10,7 @@ SimpleMessagesWeb/.vs/config/applicationhost.config
 /SimpleMessagesWeb/SimpleMessagesWeb.Tests/SimpleMessagesWeb.Tests.csproj.user
 /SimpleMessages/SimpleMessages/bin/Debug
 /SimpleMessages/SimpleMessages/obj/Debug
+/SimpleMessagesWeb/SimpleMessagesWeb/bin
+/SimpleMessagesWeb/SimpleMessagesWeb/obj/Debug
+/SimpleMessagesWeb/SimpleMessagesWeb.DB/obj/Debug
+/SimpleMessagesWeb/SimpleMessagesWeb/App_Data

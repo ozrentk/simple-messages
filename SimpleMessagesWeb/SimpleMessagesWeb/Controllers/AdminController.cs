@@ -6,18 +6,12 @@ using System.Web.Mvc;
 
 namespace WebDemo.Controllers
 {
-    public class PublicController : Controller
+    public class AdminController : Controller
     {
-        [Route("Public")]
+        [Route("Admin")]
         public ActionResult Index()
         {
             return View();
         }
-
-        //[Route("test123/{value?}")]
-        //public ActionResult Show(int? value)
-        //{
-        //    return View();
-        //}
     }
 }

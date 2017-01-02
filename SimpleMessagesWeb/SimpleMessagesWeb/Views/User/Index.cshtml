@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section scripts {
+    <script>
+        @Html.RequireJs("/Scripts/main.js", "/Scripts/My/chat.js");
+    </script>
+}
+
+<div style="margin-top: 5px;">
+    <div class="col-md-3">
+        <div class="input-group">
+            <span class="input-group-addon" id="send-to">@@</span>
+            <input type="text" id="message-receiver" class="form-control" list="user-list" placeholder="Send message to" @*autocomplete="on"*@ />
+            <datalist id="user-list"></datalist>
+        </div>
+        <div class="list-group">
+            <button type="button" class="list-group-item">Joža</button>
+            <button type="button" class="list-group-item">Mirko</button>
+            <button type="button" class="list-group-item">Pero</button>
+            <button type="button" class="list-group-item">Slavko</button>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div id="conversation-area" style="height: 800px; overflow-y: scroll; border: 1px solid lightgray">
+            <ul class="list-unstyled list-blocks">
+                @*<li><div class="panel panel-default clearfix"><div class="panel-body">Onaj plastični kolut od balončeka joj stavim pa bu kroz to išla. Ko pesek</div></div></li>
+                <li><div class="panel panel-default"><div class="panel-body">Maaàli betić</div></div></li>
+                <li><div class="panel panel-default"><div class="panel-body">Jebetić</div></div></li>
+                <li class="text-right"><div class="panel panel-default"><div class="panel-body">haha, moš mislit</div></div></li>
+                <li class="text-right"><div class="panel panel-default"><div class="panel-body">al ko zna, možda</div></div></li>
+                <li><div class="panel panel-default clearfix"><div class="panel-body">Onaj plastični kolut od balončeka joj stavim pa bu kroz to išla. Ko pesek</div></div></li>
+                <li><div class="panel panel-default"><div class="panel-body">Maaàli betić</div></div></li>
+                <li><div class="panel panel-default"><div class="panel-body">Jebetić</div></div></li>
+                <li class="text-right"><div class="panel panel-default"><div class="panel-body">haha, moš mislit</div></div></li>
+                <li class="text-right"><div class="panel panel-default"><div class="panel-body">al ko zna, možda</div></div></li>
+                <li><div class="panel panel-default clearfix"><div class="panel-body">Onaj plastični kolut od balončeka joj stavim pa bu kroz to išla. Ko pesek</div></div></li>
+                <li><div class="panel panel-default"><div class="panel-body">Maaàli betić</div></div></li>
+                <li><div class="panel panel-default"><div class="panel-body">Jebetić</div></div></li>
+                <li class="text-right"><div class="panel panel-default"><div class="panel-body">haha, moš mislit</div></div></li>
+                <li class="text-right"><div class="panel panel-default"><div class="panel-body">al ko zna, možda</div></div></li>
+                <li><div class="panel panel-default clearfix"><div class="panel-body">Onaj plastični kolut od balončeka joj stavim pa bu kroz to išla. Ko pesek</div></div></li>
+                <li><div class="panel panel-default"><div class="panel-body">Maaàli betić</div></div></li>
+                <li><div class="panel panel-default"><div class="panel-body">Jebetić</div></div></li>
+                <li class="text-right"><div class="panel panel-default"><div class="panel-body">haha, moš mislit</div></div></li>
+                <li class="text-right"><div class="panel panel-default"><div class="panel-body">al ko zna, možda</div></div></li>
+                <li><div class="panel panel-default clearfix"><div class="panel-body">Onaj plastični kolut od balončeka joj stavim pa bu kroz to išla. Ko pesek</div></div></li>
+                <li><div class="panel panel-default"><div class="panel-body">Maaàli betić</div></div></li>
+                <li><div class="panel panel-default"><div class="panel-body">Jebetić</div></div></li>
+                <li class="text-right"><div class="panel panel-default"><div class="panel-body">haha, moš mislit</div></div></li>
+                <li class="text-right"><div class="panel panel-default"><div class="panel-body">al ko zna, možda</div></div></li>
+                <li><div class="panel panel-default clearfix"><div class="panel-body">Onaj plastični kolut od balončeka joj stavim pa bu kroz to išla. Ko pesek</div></div></li>
+                <li><div class="panel panel-default"><div class="panel-body">Maaàli betić</div></div></li>
+                <li><div class="panel panel-default"><div class="panel-body">Jebetić</div></div></li>
+                <li class="text-right"><div class="panel panel-default"><div class="panel-body">haha, moš mislit</div></div></li>
+                <li class="text-right"><div class="panel panel-default"><div class="panel-body">al ko zna, možda</div></div></li>*@
+            </ul>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-pencil"></i>
+            </span>
+            <input type="text" class="form-control" placeholder="..." />
+        </div>
+    </div>
+</div>
+
+@*<button type="button" id="myStateButton" data-complete-text="finished!" class="btn btn-primary" autocomplete="off">
+    ...
+</button>*@

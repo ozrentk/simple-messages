@@ -56,13 +56,13 @@
     <Compile Include="DAL\Database.cs" />
     <Compile Include="Attributes\ExistingUsernameAttribute.cs" />
     <Compile Include="Exceptions\StorageException.cs" />
-    <Compile Include="Extensions\RequestInterceptor.cs" />
+    <Compile Include="Extensions\CorsEnabler.cs" />
+    <Compile Include="Extensions\DispatchLogger.cs" />
     <Compile Include="Helpers\HmacHelper.cs" />
     <Compile Include="Models\MessageStatusType.cs" />
     <Compile Include="Models\AggregateNotification.cs" />
     <Compile Include="Models\NotificationType.cs" />
-    <Compile Include="Service\ISecureMessages.cs" />
-    <Compile Include="Service\IPublicMessages.cs" />
+    <Compile Include="Service\IMessages.cs" />
     <Compile Include="Service\MessageService.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Delivery.cs" />

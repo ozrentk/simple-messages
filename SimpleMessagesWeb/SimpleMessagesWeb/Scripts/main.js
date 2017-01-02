@@ -9,6 +9,7 @@
         jscookie: "js-cookie/js.cookie",
     },
     shim: {
+        bootstrap: ["jquery"],
         jqueryValidate: ["jquery"],
         jqueryValidateUnobtrusive: ["jquery", "jqueryValidate"]
     }

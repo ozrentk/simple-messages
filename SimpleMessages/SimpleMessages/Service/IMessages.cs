@@ -6,10 +6,21 @@ using System.ServiceModel.Web;
 namespace SimpleMessages.Service
 {
     [ServiceContract]
-    public interface ISecureMessages
+    public interface IMessages
     {
         [WebInvoke(Method = "OPTIONS", UriTemplate = "*")]
         bool HandleHttpOptionsRequest();
+
+        [OperationContract]
+        [WebGet(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "echo?text={text}")]
+        string Echo(string text);
+
+        [OperationContract]
+        [WebInvoke(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json,
+            Method ="POST",
+            UriTemplate = "users")]
+        Guid? RegisterUser(User user);
 
         [OperationContract]
         [WebGet(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json,
@@ -58,6 +69,6 @@ namespace SimpleMessages.Service
         [OperationContract]
         [WebGet(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json,
             UriTemplate = "user?search={token}")]
-        User[] FindUsers(string token);
+        string[] FindUserNames(string token);
     }
 }

@@ -165,7 +165,7 @@ namespace SimpleMessages.DAL
             }
         }
 
-        internal User[] FindUsers(string token)
+        internal string[] FindUsers(string token)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -176,7 +176,7 @@ namespace SimpleMessages.DAL
                 cmd.Parameters.AddWithValue("@token", token);
 
                 SqlDataReader reader = null;
-                var users = new List<User>();
+                var users = new List<string>();
                 try
                 {
                     conn.ConnectionString = _connectionString;
@@ -186,11 +186,7 @@ namespace SimpleMessages.DAL
 
                     while (reader.Read())
                     {
-                        users.Add(new User
-                        {
-                            Guid = Guid.Parse(reader["Guid"].ToString()),
-                            UserName = reader["Name"].ToString()
-                        });
+                        users.Add(reader["Name"].ToString());
                     }
                 }
                 catch (Exception ex)

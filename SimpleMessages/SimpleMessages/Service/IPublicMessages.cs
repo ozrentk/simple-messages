@@ -8,6 +8,9 @@ namespace SimpleMessages.Service
     [ServiceContract]
     public interface IPublicMessages
     {
+        [WebInvoke(Method = "OPTIONS", UriTemplate = "*")]
+        bool HandleHttpOptionsRequest();
+
         [OperationContract]
         [WebGet(RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json,
             UriTemplate = "echo?text={text}")]

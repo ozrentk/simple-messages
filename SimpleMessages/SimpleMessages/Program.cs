@@ -17,17 +17,24 @@ namespace SimpleMessages
     {
         static void Main(/*string[] args*/)
         {
-            var publicMessageServiceUrl = ConfigurationManager.AppSettings["my:publicMessageServiceUrl"];
-            var publicSvcUri = new Uri(publicMessageServiceUrl);
+            //var publicMessageServiceUrl = ConfigurationManager.AppSettings["my:publicMessageServiceUrl"];
+            //var publicSvcUri = new Uri(publicMessageServiceUrl);
 
-            var secureMessageServiceUrl = ConfigurationManager.AppSettings["my:secureMessageServiceUrl"];
-            var secureSvcUri = new Uri(secureMessageServiceUrl);
+            //var secureMessageServiceUrl = ConfigurationManager.AppSettings["my:secureMessageServiceUrl"];
+            //var secureSvcUri = new Uri(secureMessageServiceUrl);
 
-            var interceptMessagesValue = ConfigurationManager.AppSettings["my:interceptMessages"];
-            var interceptMessages = bool.Parse(interceptMessagesValue);
+            var messageServiceUrl = ConfigurationManager.AppSettings["my:messageServiceUrl"];
+            var svcUri = new Uri(messageServiceUrl);
 
-            using (var host = new WebServiceHost(typeof(MessageService), publicSvcUri))
+            var logMessagesValue = ConfigurationManager.AppSettings["my:logMessages"];
+            var logMessages = bool.Parse(logMessagesValue);
+
+            var enableCorsValue = ConfigurationManager.AppSettings["my:enableCors"];
+            var enableCors = bool.Parse(enableCorsValue);
+
+            using (var host = new WebServiceHost(typeof(MessageService), svcUri))
             {
+                /*
                 // Authentication: set custom validator for username/pwd
                 host.Credentials.UserNameAuthentication.UserNamePasswordValidationMode = UserNamePasswordValidationMode.Custom;
                 host.Credentials.UserNameAuthentication.CustomUserNamePasswordValidator = new CustomUserNameValidator();
@@ -49,13 +56,28 @@ namespace SimpleMessages
                 secureBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.Basic;
                 //binding.Security.Transport.Realm = "should I?";
                 var epSec = host.AddServiceEndpoint(typeof(ISecureMessages), secureBinding, secureSvcUri);
+                */
+
+                // common endpoint - no security
+                var publicBinding = new WebHttpBinding();
+                publicBinding.Security.Mode = WebHttpSecurityMode.None;
+                //var epSec = host.AddServiceEndpoint(typeof(IPublicMessages), publicBinding, svcUri);
+                //var epSec = host.AddServiceEndpoint(typeof(ISecureMessages), publicBinding, svcUri);
+                var ep = host.AddServiceEndpoint(typeof(IMessages), publicBinding, svcUri);
 
                 // setup message interception
-                if (interceptMessages)
+                if (logMessages)
                 {
-                    var msgIcpt = new RequestInterceptor();
-                    epNoSec.EndpointBehaviors.Add(msgIcpt);
-                    epSec.EndpointBehaviors.Add(msgIcpt);
+                    var msgLogger = new DispatchLogger();
+                    //epNoSec.EndpointBehaviors.Add(msgIcpt);
+                    //epSec.EndpointBehaviors.Add(msgIcpt);
+                    ep.EndpointBehaviors.Add(msgLogger);
+                }
+
+                if (enableCors)
+                {
+                    var corsEnabler = new CorsEnabler();
+                    ep.EndpointBehaviors.Add(corsEnabler);
                 }
 
                 try
