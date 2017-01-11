@@ -1,0 +1,72 @@
+﻿@model SimpleMessages.Web.Models.Chat.Index
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section scripts {
+    <script>
+        @Html.RequireJs("/Scripts/main.js", "/Scripts/My/chat.js");
+    </script>
+}
+
+<div style="margin-top: 5px;">
+    <div class="col-xs-12">
+        <div class="input-group">
+            <span class="input-group-addon">
+                From <i class="glyphicon glyphicon-user"></i>
+            </span>
+            <input type="search" id="this-user" class="form-control" placeholder="I am..." readonly="readonly" value="@Model.CurrentUser" />
+            <span id="this-user-change" class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>
+        </div>
+    </div>
+    <div id="this-user-select" class="btn-group col-xs-12" role="group" style="display: none">
+    </div>
+    <div class="col-md-3" style="margin-top: 5px">
+        <div id="other-user-list" class="list-group" style="margin-bottom: 0px;">
+        </div>
+    </div>
+    <div class="col-md-9" style="margin-top: 5px">
+        <div class="input-group">
+            <span class="input-group-addon">
+                To <i class="glyphicon glyphicon-user"></i>
+            </span>
+            <input type="text" id="other-user" class="form-control" placeholder="The other guy is..." readonly="readonly" />
+            <span id="other-user-change" class="input-group-addon">
+                <i class="glyphicon glyphicon-search"></i>
+            </span>
+        </div>
+        <div id="other-user-select" class="btn-group col-xs-12" role="group" style="display: none">
+        </div>
+        <div id="conversation-area" style="height: 250px; overflow-y: scroll; border: 1px solid lightgray">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-pencil"></i>
+            </span>
+            <textarea id="new-message-content" class="form-control focus-overlay" placeholder="..." disabled="disabled"></textarea>
+        </div>
+    </div>
+</div>
+
+<div id="screen-overlay"></div>
+
+<div id="confirm-deletion-dlg" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Please confirm...</h4>
+            </div>
+            <div class="modal-body">
+                <p>Delete message?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>

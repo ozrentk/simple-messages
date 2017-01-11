@@ -1,0 +1,106 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+/* My */
+ul.list-blocks > li.msg-sel {
+    background-color: #ceebeb;
+}
+
+ul.list-blocks > li > div.msg-pnl {
+    display: inline-block;
+    margin: 0px 15px 3px 15px;
+}
+
+ul.list-blocks > li > div.msg-e0 {
+    display: none !important;
+}
+
+ul.list-blocks > li > div.msg-e {
+    display: inline-block;
+    margin: 0px;
+    vertical-align: top;
+}
+
+    ul.list-blocks > li > div.msg-e span {
+        display: block;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+        ul.list-blocks > li > div.msg-e span:hover {
+            color: red;
+        }
+
+#conversation-area div.panel {
+    max-width: 85%;
+}
+
+    #conversation-area div.panel span.msg-dt {
+        font-size: 75%;
+        font-weight: bold;
+    }
+
+    #conversation-area div.panel span.glyphicon.status-sent {
+        color: lightgray;
+    }
+
+    #conversation-area div.panel span.glyphicon.status-received {
+        color: #7878ff;
+    }
+
+    #conversation-area div.panel span.glyphicon.status-read {
+        color: green;
+    }
+
+    #conversation-area div.panel span.glyphicon.status-failed {
+        color: red;
+    }
+
+.focus-overlay {
+    position: relative;
+}
+
+#screen-overlay {
+    position: absolute;
+    display: none;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+}
+
+#modal-dialog {
+    position: absolute;
+    display: none;
+    z-index: 100;
+    margin: 25% auto;
+    width: 250px;
+    /*padding: 20px;*/
+    border: 1px solid #515151;
+    background-color: #eaeaea;
+}
+
+.noselect {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
