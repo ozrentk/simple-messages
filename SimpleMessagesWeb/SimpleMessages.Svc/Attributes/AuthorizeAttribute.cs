@@ -27,6 +27,9 @@ namespace SimpleMessages.Svc.Attributes
             var mgr = new Identity.UserManager(new Identity.UserStore());
             var user = mgr.FindByIdAsync(userId).Result;
 
+            if (user == null)
+                return false;
+
             var matches = _roles.Intersect(user.Roles);
 
             return (matches.Count() > 0);

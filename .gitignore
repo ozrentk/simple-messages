@@ -33,3 +33,9 @@ SimpleMessagesWeb/.vs/config/applicationhost.config
 /SimpleMessagesWeb/SimpleMessages.Identity/obj/Debug
 /SimpleMessagesWeb/SimpleMessages.Svc/bin/Debug
 /SimpleMessagesWeb/SimpleMessages.Svc/obj/Debug
+/SimpleMessages
+/SimpleMessagesWeb/packages
+/SimpleMessagesWeb/SimpleMessages.Web/App_Data
+/SimpleMessagesWeb/SimpleMessages.Web/bin
+/SimpleMessagesWeb/SimpleMessages.Web/obj/Debug
+/SimpleMessagesWeb/SimpleMessages.Web/SimpleMessages.Web.csproj.user

@@ -83,12 +83,11 @@ namespace SimpleMessages.Web.Controllers
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
 
-            // TODO: encrypt this to prevent client-side attacks
-            Response.Cookies[".simplemessages.svctoken"].Value = usr.Id.ToString();
-
             switch (result)
             {
                 case SignInStatus.Success:
+                    // TODO: encrypt this to prevent client-side attacks
+                    Response.Cookies[".simplemessages.svctoken"].Value = usr.Id.ToString();
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -178,6 +177,8 @@ namespace SimpleMessages.Web.Controllers
                     //await UserManager.AddClaimAsync(user.Id, new System.Security.Claims.Claim(System.Security.Claims.ClaimTypes.Country, "England"));
 
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                    Response.Cookies[".simplemessages.svctoken"].Value = user.Id.ToString();
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link

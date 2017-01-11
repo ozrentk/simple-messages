@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMessages.Svc", "Simpl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMessages.Identity", "SimpleMessages.Identity\SimpleMessages.Identity.csproj", "{19D1DBDC-023D-44C6-8426-BAB3D83EDDB5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DatabaseBackup", "DatabaseBackup", "{CA24471B-3C4E-4CC0-956C-41C06D0AD69C}"
+	ProjectSection(SolutionItems) = preProject
+		..\Database\MessagesDb.bak = ..\Database\MessagesDb.bak
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
