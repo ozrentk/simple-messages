@@ -7,15 +7,16 @@
         bootstrap: "bootstrap",
         domReady: "domReady",
         jscookie: "js-cookie/js.cookie",
-        moment: 'moment'
+        moment: "moment",
+        knockoutjs: "knockout-3.4.1"
     },
     shim: {
         bootstrap: ["jquery"],
         jqueryValidate: ["jquery"],
         jqueryValidateUnobtrusive: ["jquery", "jqueryValidate"]
-    },
+    }
     // TODO: versioning for production
-    urlArgs: "_=" + (new Date()).getTime()
+    //urlArgs: "_=" + (new Date()).getTime()
 });
 
 //require(["kickoff"], function (kickoff) {

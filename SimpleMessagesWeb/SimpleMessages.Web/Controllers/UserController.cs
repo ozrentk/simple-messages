@@ -48,7 +48,19 @@ namespace SimpleMessages.Web.Controllers
                 CurrentUser = User.Identity.Name
             };
 
-            return View(model);
+            return View("Index", model);
+        }
+
+        [Route("Chat2")]
+        [Authorize]
+        public ActionResult Index2()
+        {
+            var model = new Models.Chat.Index
+            {
+                CurrentUser = User.Identity.Name
+            };
+
+            return View("Index-ko", model);
         }
     }
 }

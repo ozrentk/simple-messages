@@ -159,6 +159,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\knockout-3.4.1.debug.js" />
+    <Content Include="Scripts\knockout-3.4.1.js" />
+    <Content Include="Scripts\My\chat-ko.js" />
     <Content Include="various.txt" />
     <Content Include="readme.txt" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -247,6 +250,7 @@
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\User\Index-ko.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

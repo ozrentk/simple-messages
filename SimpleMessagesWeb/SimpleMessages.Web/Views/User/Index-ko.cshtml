@@ -1,0 +1,93 @@
+﻿@model SimpleMessages.Web.Models.Chat.Index
+
+@{
+    ViewBag.Title = "Index";
+    var assemblyVersion = typeof(SimpleMessages.Web.MvcApplication).Assembly.GetName().Version.ToString();
+}
+
+@section scripts {
+    <script>
+        require.config({ urlArgs: "v=@assemblyVersion" });
+        var chatOptions = {
+            currentUser: "@Model.CurrentUser"
+        };
+        @Html.RequireJs("/Scripts/main.js", "/Scripts/My/chat-ko.js");
+    </script>
+}
+<div class="row">&nbsp;</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-5">
+        <div class="input-group">
+            <span class="input-group-addon" id="this-user-select-addon">
+                <i class="glyphicon glyphicon-user"></i>
+            </span>
+            <input type="text" id="this-user-select-input" class="form-control" data-bind="textInput: thisUserToken, event: { keyup: thisUserSearch, focus: thisUserFocus }" placeholder="This user" aria-describedby="this-user-select-addon">
+        </div>
+        <div id="this-user-select-dropdown" class="dropdown">
+            <button type="button" class="btn btn-default dropdown-toggle" style="display: none" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" data-bind="foreach: foundNames" aria-labelledby="this-user-select-dropdown">
+                <li>
+                    <a href="#" data-bind="text: $data"> </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-5">
+        <div class="input-group">
+            <span class="input-group-addon" id="other-user-select-addon">
+                <i class="glyphicon glyphicon-user"></i>
+            </span>
+            <input type="text" id="other-user-select-input" class="form-control" data-bind="textInput: otherUserToken, event: { keyup: otherUserSearch, focus: otherUserFocus }" placeholder="Other user" aria-describedby="other-user-select-addon">
+        </div>
+        <div id="other-user-select-dropdown" class="dropdown">
+            <button type="button" class="btn btn-default dropdown-toggle" style="display: none" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" data-bind="foreach: foundNames" aria-labelledby="other-user-select-dropdown">
+                <li>
+                    <a href="#" data-bind="text: $data"> </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">&nbsp;</div>
+<div class="row">
+    <div class="col-md-2">
+        <div class="btn-group-vertical" data-bind="foreach: conversations">
+            <label class="btn btn-primary" style="text-align: left">
+                <input type="radio" name="active-conversations-group" autocomplete="off" data-bind="attr: {value: user}, checked: $parent.activeConversation"> <!--ko text: user--><!--/ko-->
+                <span class="badge" data-bind="text: messageCount, visible: messageCount() > 0"></span>
+            </label>
+        </div>
+    </div>
+    <div class="col-md-10">
+        <div id="conversation-area" style="height: 250px; overflow-y: scroll; border: 1px solid lightgray">
+            <ul class="list-unstyled list-blocks" data-bind="template: { name: 'message-template', foreach: messages }"></ul>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-pencil"></i>
+            </span>
+            <textarea id="new-message-content" class="form-control focus-overlay" placeholder="..." disabled="disabled"></textarea>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="message-template">
+    <li data-bind="css: { 'text-right': direction == 'in' }">
+        <div class="msg-e msg-e0 noselect">
+            <span class="glyphicon glyphicon-remove"></span>
+            <span class="glyphicon glyphicon-pencil"></span>
+        </div>
+        <div class="panel panel-default msg-pnl">
+            <div class="panel-body">
+                <div class="mcg-cnt" data-bind="text: content"></div>
+                <small><span class="msg-dt"><span data-bind="text: time"></span> UTC</span> <span class="glyphicon glyphicon-ok" data-bind="css: { status }"></span></small>
+            </div>
+        </div>
+    </li>
+</script>
