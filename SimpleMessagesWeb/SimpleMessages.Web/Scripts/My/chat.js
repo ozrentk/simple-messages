@@ -8,7 +8,7 @@
     this.dialogs = {};
     this.$thisUser = $('#this-user');
     this.$otherUser = $('#other-user');
-    this.$conversationArea = $('#conversation-area');
+    this.$conversationArea = $('#conversation-box');
     this.$newMessageContent = $('#new-message-content');
 
     function getStatusClassName(status) {
@@ -343,7 +343,7 @@
 
         sendSvcData('/message?from=' + thisUser + '&to=' + otherUser, { Content: cleanContent }, 'PUT', function (message, isSuccess) {
             if (isSuccess) {
-                // TODO: remove special case (čćđ, newline - need base64 decode)
+                // TODO: remove special case?
                 addMesage('out', message.To, message.Guid, message.Content, message.Status, message.CreatedAt);
                 jumpToEnd();
             } else {

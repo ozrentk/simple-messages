@@ -176,7 +176,7 @@ namespace SimpleMessages.Svc.Service
             return dbMessage;
         }
 
-        public void NotifyStatus(Guid guid, MessageStatusType status)
+        public void NotifyMessageStatus(Guid guid, MessageStatusType status)
         {
             var notification = new Notification
             {
@@ -222,7 +222,7 @@ namespace SimpleMessages.Svc.Service
             ctx.OutgoingResponse.StatusDescription = httpDescription;
         }
 
-        public void NotifyStatuses(string from, string to, MessageStatusType status)
+        public void NotifyMessageStatuses(string from, string to, MessageStatusType status)
         {
             var notification = new AggregateNotification
             {
@@ -350,7 +350,7 @@ namespace SimpleMessages.Svc.Service
             string httpDescription = "";
 
             WebOperationContext ctx = WebOperationContext.Current;
-            if (message == null || String.IsNullOrEmpty(message.Content))
+            if (message == null || message.Content == null)
             {
                 ctx.OutgoingResponse.StatusCode = HttpStatusCode.BadRequest;
                 ctx.OutgoingResponse.StatusDescription = "Input data missing";

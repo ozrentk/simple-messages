@@ -26,11 +26,16 @@ ul.list-blocks > li > div.msg-pnl {
     margin: 0px 15px 3px 15px;
 }
 
+ul.list-blocks > li > div.msg-e {
+    display: none;
+}
+
+/* Obsolete (chat-ko.js doesn't use it) */
 ul.list-blocks > li > div.msg-e0 {
     display: none !important;
 }
 
-ul.list-blocks > li > div.msg-e {
+ul.list-blocks > li.msg-sel > div.msg-e {
     display: inline-block;
     margin: 0px;
     vertical-align: top;
@@ -46,28 +51,28 @@ ul.list-blocks > li > div.msg-e {
             color: red;
         }
 
-#conversation-area div.panel {
+#conversation-box div.panel {
     max-width: 85%;
 }
 
-    #conversation-area div.panel span.msg-dt {
+    #conversation-box div.panel span.msg-dt {
         font-size: 75%;
         font-weight: bold;
     }
 
-    #conversation-area div.panel span.glyphicon.status-sent {
+    #conversation-box div.panel span.glyphicon.status-sent {
         color: lightgray;
     }
 
-    #conversation-area div.panel span.glyphicon.status-received {
+    #conversation-box div.panel span.glyphicon.status-received {
         color: #7878ff;
     }
 
-    #conversation-area div.panel span.glyphicon.status-read {
+    #conversation-box div.panel span.glyphicon.status-read {
         color: green;
     }
 
-    #conversation-area div.panel span.glyphicon.status-failed {
+    #conversation-box div.panel span.glyphicon.status-failed {
         color: red;
     }
 

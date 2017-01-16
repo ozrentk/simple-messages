@@ -2,10 +2,15 @@
 
 @{
     ViewBag.Title = "Index";
+    var assemblyVersion = typeof(SimpleMessages.Web.MvcApplication).Assembly.GetName().Version.ToString();
 }
 
 @section scripts {
     <script>
+        require.config({ urlArgs: "v=@assemblyVersion" });
+        var chatOptions = {
+            currentUser: "@Model.CurrentUser"
+        };
         @Html.RequireJs("/Scripts/main.js", "/Scripts/My/chat.js");
     </script>
 }
@@ -40,7 +45,7 @@
         </div>
         <div id="other-user-select" class="btn-group col-xs-12" role="group" style="display: none">
         </div>
-        <div id="conversation-area" style="height: 250px; overflow-y: scroll; border: 1px solid lightgray">
+        <div id="conversation-box" style="height: 250px; overflow-y: scroll; border: 1px solid lightgray">
         </div>
         <div class="input-group">
             <span class="input-group-addon">

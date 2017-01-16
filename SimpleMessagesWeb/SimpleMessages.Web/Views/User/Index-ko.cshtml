@@ -58,35 +58,40 @@
 <div class="row">
     <div class="col-md-2">
         <div class="btn-group-vertical" data-bind="foreach: conversations">
-            <label class="btn btn-primary" style="text-align: left">
-                <input type="radio" name="active-conversations-group" autocomplete="off" data-bind="attr: {value: user}, checked: $parent.activeConversation"> <!--ko text: user--><!--/ko-->
-                <span class="badge" data-bind="text: messageCount, visible: messageCount() > 0"></span>
+            <label class="btn btn-primary" style="text-align: left; max-width: 180px">
+                <input type="radio" name="active-conversations-group" autocomplete="off" data-bind="attr: {value: user}, checked: $parent.otherUserToken, checked: $parent.otherUser"> <!--ko text: user--><!--/ko-->
+                <span class="badge" data-bind="text: unreadMessageCount, visible: unreadMessageCount() > 0"></span>
             </label>
         </div>
     </div>
     <div class="col-md-10">
-        <div id="conversation-area" style="height: 250px; overflow-y: scroll; border: 1px solid lightgray">
-            <ul class="list-unstyled list-blocks" data-bind="template: { name: 'message-template', foreach: messages }"></ul>
+        <div id="conversation-box" style="height: 250px; overflow-y: scroll; border: 1px solid lightgray" data-bind="event: { scroll: conversationScrolled }">
+            <ul class="list-unstyled list-blocks" data-bind="template: { name: 'message-template', foreach: activeConversationMessages }"></ul>
         </div>
         <div class="row">&nbsp;</div>
         <div class="input-group">
             <span class="input-group-addon">
                 <i class="glyphicon glyphicon-pencil"></i>
             </span>
-            <textarea id="new-message-content" class="form-control focus-overlay" placeholder="..." disabled="disabled"></textarea>
+            <textarea id="new-message-content" class="form-control focus-overlay" placeholder="..."  data-bind="textInput: newMessageContent, enable: bothUsersSelected, event: { keyup: sendMessage }"></textarea>
         </div>
     </div>
 </div>
 <script type="text/html" id="message-template">
-    <li data-bind="css: { 'text-right': direction == 'in' }">
-        <div class="msg-e msg-e0 noselect">
-            <span class="glyphicon glyphicon-remove"></span>
-            <span class="glyphicon glyphicon-pencil"></span>
+    <li data-bind="css: { 'text-right': direction == 'out', 'msg-sel': isSelected }, toggleClick: isSelected">
+        <div class="msg-e noselect">
+            <span class="glyphicon glyphicon-remove" data-bind="click: $parent.deleteMessages($parent, $data)"></span>
+            <span class="glyphicon glyphicon-pencil" data-bind="click: editMessage"></span>
         </div>
         <div class="panel panel-default msg-pnl">
             <div class="panel-body">
                 <div class="mcg-cnt" data-bind="text: content"></div>
-                <small><span class="msg-dt"><span data-bind="text: time"></span> UTC</span> <span class="glyphicon glyphicon-ok" data-bind="css: { status }"></span></small>
+                <small>
+                    <span class="msg-dt">
+                        <span data-bind="text: timeDisplay"></span> UTC
+                    </span> 
+                    <span class="glyphicon glyphicon-ok" data-bind="css: statusClass"></span>
+                </small>
             </div>
         </div>
     </li>
